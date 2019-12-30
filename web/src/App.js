@@ -4,33 +4,10 @@ import axios from 'axios'
 import './App.css'
 
 class App extends Component {
-  state = {
-    users: [],
-    loading: false,
-  }
-
-  async componentDidMount() {
-    console.log(process.env)
-    this.setState({ loading: true })
-    const res = await axios.get(
-      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,
-    )
-    this.setState({ users: res.data, loading: false })
-  }
-
-  searchUsers = async text => {
-    this.setState({ loading: true })
-    const res = await axios.get(
-      `https://api.github.com/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`,
-    )
-    console.log(res)
-    this.setState({ users: res.data, loading: false })
-  }
-
   render() {
     return (
       <div className="App">
-        <div class="container">
+        <div class="">
           <div class="row">
             <div class="col-sm">
               <Box>
@@ -45,7 +22,13 @@ class App extends Component {
             </div>
             <div class="col-sm">
               <embed
-                src="http://localhost/test"
+                src="http://localhost/fandango"
+                style={{ width: '500px', height: '300px' }}
+              ></embed>
+            </div>
+            <div class="col-sm">
+              <embed
+                src="http://localhost/bbc"
                 style={{ width: '500px', height: '300px' }}
               ></embed>
             </div>
@@ -57,6 +40,17 @@ class App extends Component {
                 frameborder="0"
                 scrolling="no"
               ></iframe>
+            </div>
+            <div align="center">
+              <iframe
+                align="center"
+                src="//widget.calendarlabs.com/v1/quot.php?cid=101&ver=1.2&uid=1599182854&c=random&l=en&cbg=FFFFFF&cb=1&cbc=000000&cf=calibri&cfg=000000&qfs=bi&qta=center&tfg=000000&tfs=bi&afc=000000&afs=i"
+                width="188"
+                height="210"
+                allowtransparency="true"
+              >
+                Loading...
+              </iframe>
             </div>
           </div>
         </div>
